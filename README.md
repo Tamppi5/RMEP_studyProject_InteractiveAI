@@ -28,7 +28,7 @@ A research platform for investigating how students use ChatGPT to solve logical 
    cp study.config.example.yml study.config.yml
    ```
    - Open `study.config.yml` in any text editor
-   - Add your OpenAI API key (get one at https://platform.openai.com/api-keys)
+   - Add your OpenAI API key 
    - Customize other settings as needed (see Configuration section below)
 
 3. **Start the application**
