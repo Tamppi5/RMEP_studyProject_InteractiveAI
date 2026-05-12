@@ -30,15 +30,16 @@
    - Customize other settings as needed (see Configuration section below)
 
 3. **Start the application**
+   - Navigate to this project's root in command prompt and run:
    ```bash
    docker-compose up
    ```
 
-4. **Access the study**
+5. **Access the study**
    - Open your browser to http://localhost:5173
    - The study interface will load automatically
 
-5. **Stop the application**
+6. **Stop the application**
    - Press `Ctrl+C` in the terminal where docker-compose is running
    - Or run: `docker-compose down`
 
