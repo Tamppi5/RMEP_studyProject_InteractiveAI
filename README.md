@@ -10,7 +10,7 @@ A research platform for investigating how students use ChatGPT to solve logical 
   - Windows users: Docker Desktop includes everything you need
   - Mac/Linux users: Install Docker Desktop for your platform
 
-### Setup (5 minutes)
+### Setup
 
 1. **Clone or download this repository**
    ```bash
@@ -55,51 +55,67 @@ All customization is done by editing files on your computer. Changes take effect
 
 ### Task File Format
 
-Task files use a simple markdown format with special syntax:
+Task files use a markdown-based format. See `customizations/tasks/ai_tasks.md` for a full working example.
 
 ```markdown
 # Page Title
 
-This is the page content. Use markdown formatting.
+> Paragraph text shown to the participant.
+> Use > for all displayed text.
 
----
+> Pick one:
 
-# Next Page Title
+    $option; Choice A; Choice B; Choice C
 
-Content for the next page.
+> Rate on a scale:
 
-## Question 1
-type: radio
+    $slider; 0; 100; Low label; High label
 
-- Option A
-- Option B
-- Option C
+> How much do you agree?
 
-## Question 2
-type: text
+    $likert; 1; 7; Strongly disagree; Strongly agree
 
-[Participant types their answer here]
+> How many?
 
-## Question 3
-type: textarea
+    $number
 
-[Larger text box for longer responses]
+> Describe your experience:
 
-## Question 4
-type: checkbox
+    $text
 
-- [ ] Option 1
-- [ ] Option 2
-- [ ] Option 3
+> Any additional comments?
+
+    $textarea
+
+# Next Page
+
+> Content for the next page starts here.
+
+%% RANDOMIZE
+
+# Randomized Page 1
+
+> This page and the ones below will appear in random order.
+
+# Randomized Page 2
+
+> Until the closing %% marker.
+
+%%
 ```
 
 **Key syntax:**
-- `---` creates a new page
-- `## Question Title` + `type: <radio|text|textarea|checkbox>` creates a question
-- List items (`-`) under `type: radio` become radio button options
-- `type: text` creates a single-line text input
-- `type: textarea` creates a multi-line text area
-- `type: checkbox` with `- [ ]` items creates checkboxes
+- `#` starts a new page (with optional title)
+- `##` creates a section heading within a page
+- `> text` displays paragraph text to the participant
+- `$option; A; B; C` creates radio buttons (semicolon-separated choices)
+- `$slider; min; max; lowLabel; highLabel` creates a slider
+- `$likert; min; max; lowLabel; highLabel` creates a Likert scale
+- `$number` creates a number input
+- `$text` creates a single-line text input
+- `$textarea` creates a multi-line text area
+- `%% RANDOMIZE` ... `%%` randomizes the pages inside the block
+- Question inputs must be indented with 4 spaces
 
 ## Configuration Reference
 
@@ -113,7 +129,7 @@ gpt_max_tokens: 1000               # Max response length
 
 # Study Settings
 condition: ai                      # 'ai' or 'no-ai'
-system_prompt: You are...          # ChatGPT behavior instructions
+system_prompt: You are a helpful logical reasoning assistant          # system prompt behavior instructions
 
 # Chat Availability
 chat_enabled_from_page: 1          # First page with chat (0-indexed)
@@ -178,8 +194,7 @@ The JSON file can be:
 
 ### OpenAI API errors
 - Check your API key is correct in `study.config.yml`
-- Verify you have credits in your OpenAI account
-- Check the model name is correct (e.g., 'gpt-4-turbo', not 'gpt4')
+- Check the model name is correct (e.g., 'gpt-4-turbo')
 
 ## Running Without Docker (Advanced)
 
@@ -189,21 +204,40 @@ If you prefer not to use Docker:
    - Python 3.10 or higher
    - Node.js 18 or higher
 
-2. **Backend setup**
+2. **Copy task files to frontend**
+   ```bash
+   cp customizations/tasks/*.md interface-frontend/public/
+   cp -r customizations/tasks/examples interface-frontend/public/
+   ```
+
+3. **Backend setup**
    ```bash
    cd interface-backend
    pip install -r requirements.txt
    flask run
    ```
 
-3. **Frontend setup** (in a new terminal)
-   ```bash
-   cd interface-frontend
-   npm install
-   npm run dev
-   ```
+4. **Frontend setup** (in a new terminal)
+   - Create `interface-frontend/.env` with the values from `study.config.yml`:
+     ```
+     VITE_PROXY_URL=http://localhost:5000
+     VITE_PCTP_CONDITION=ai
+     VITE_CHAT_ENABLED_BEGIN=1
+     VITE_CHAT_ENABLED_END=99
+     VITE_ALLOW_IMAGES=false
+     VITE_ATTN_CHECK_PAGE=1
+     VITE_ATTN_CHECK_RES=Logical reasoning,The best choice
+     VITE_DEV_MODE=true
+     VITE_SYSTEM_PROMPT=You are a helpful logical reasoning assistant.
+     ```
+   - Then run:
+     ```bash
+     cd interface-frontend
+     npm install
+     npm run dev
+     ```
 
-4. **Access the study**
+5. **Access the study**
    - Open browser to http://localhost:5173
 
 Note: You'll need **two terminals** running simultaneously (one for backend, one for frontend).

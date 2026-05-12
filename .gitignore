@@ -1,0 +1,72 @@
+# ========================================
+# AI Study .gitignore
+# ========================================
+# Prevents committing sensitive files and build artifacts
+
+# ----------------------------------------
+# Sensitive Files (NEVER COMMIT THESE)
+# ----------------------------------------
+# Configuration file contains API key
+study.config.yml
+
+# Participant data
+study_data.json
+
+# Environment files (legacy, if they exist)
+.env
+.env.local
+.env.development
+.env.production
+*.env
+
+# ----------------------------------------
+# Python
+# ----------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# ----------------------------------------
+# Node.js
+# ----------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+dist-ssr/
+*.local
+
+# ----------------------------------------
+# IDEs and Editors
+# ----------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ----------------------------------------
+# Docker
+# ----------------------------------------
+*.log
+
+# ----------------------------------------
+# OS Files
+# ----------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ----------------------------------------
+# Git
+# ----------------------------------------
+*.orig
