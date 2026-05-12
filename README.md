@@ -30,7 +30,9 @@
    - Customize other settings as needed (see Configuration section below)
 
 3. **Start the application**
+   - Open Docker Desktop app on your computer
    - Navigate to this project's root in command prompt and run:
+     
    ```bash
    docker-compose up
    ```
