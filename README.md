@@ -13,10 +13,15 @@ A research platform for investigating how students use ChatGPT to solve logical 
 ### Setup
 
 1. **Clone or download this repository**
+
+   - Navigate to your preferred command prompt location
+   - Find the repository url from this git repo, click green "code" button -> choose "https" -> copy the url 
+
    ```bash
-   git clone <repository-url>
+   git clone <repository-url> 
    cd AI_study
    ```
+   - Alternatively download as zip and unzip the project
 
 2. **Configure your study**
    - Open `study.config.yml` in any text editor
@@ -196,7 +201,7 @@ The JSON file can be:
 - Check your API key is correct in `study.config.yml`
 - Check the model name is correct (e.g., 'gpt-4-turbo')
 
-## Running Without Docker (Advanced)
+## Running Without Docker
 
 If you prefer not to use Docker:
 
