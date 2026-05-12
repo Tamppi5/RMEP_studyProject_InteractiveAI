@@ -10,7 +10,7 @@
 study.config.yml
 
 # Participant data
-study_data.json
+#study_data.json
 
 # Environment files (legacy, if they exist)
 .env

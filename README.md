@@ -23,7 +23,10 @@ A research platform for investigating how students use ChatGPT to solve logical 
    ```
    - Alternatively download as zip and unzip the project
 
-2. **Configure your study**
+2. **Set up config and data files**
+   ```bash
+   cp study.config.example.yml study.config.yml
+   ```
    - Open `study.config.yml` in any text editor
    - Add your OpenAI API key (get one at https://platform.openai.com/api-keys)
    - Customize other settings as needed (see Configuration section below)
@@ -251,8 +254,9 @@ Note: You'll need **two terminals** running simultaneously (one for backend, one
 
 ```
 AI_study/
-├── study.config.yml              # Main configuration file
-├── study_data.json               # Collected participant data
+├── study.config.example.yml      # Config template (copy to study.config.yml)
+├── study.config.yml              # Your configuration (created during setup, gitignored)
+├── study_data.json               # Collected participant data (created during setup, gitignored)
 ├── docker-compose.yml            # Docker orchestration
 ├── customizations/               # Student workspace for editing
 │   ├── tasks/

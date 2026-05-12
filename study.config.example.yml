@@ -1,0 +1,24 @@
+# API Settings
+openai_api_key: sk-YOUR_KEY_HERE  # Required: Your OpenAI API key
+gpt_model: gpt-4-turbo            # Model to use
+gpt_max_tokens: 1000               # Max response length
+
+# Study Settings
+condition: ai                      # 'ai' or 'no-ai'
+system_prompt: You are a helpful logical reasoning assistant          # system prompt behavior instructions
+
+# Chat Availability
+chat_enabled_from_page: 1          # First page with chat (0-indexed)
+chat_enabled_until_page: 99        # Last page with chat
+allow_image_attachments: false     # Enable image uploads
+
+# Attention Check
+attention_check_page: 1            # Page number (-1 to disable)
+attention_check_answers: Answer1,Answer2  # Correct answers (comma-separated)
+
+# Development
+dev_mode: true                     # Skip participant ID validation
+
+# Completion
+completion_code: COMPLETE          # Code shown at end
+completion_url: ""                 # Redirect URL (optional)

@@ -12,7 +12,7 @@ services:
       - ./study.config.yml:/study.config.yml:ro
       # Mount customizations for hot-reload
       - ./customizations/correct_answers.py:/app/correct_answers.py
-      # Mount data file for persistence
+      # Mount data file for persistence (must exist on host)
       - ./study_data.json:/app/study_data.json
       # Mount source code for hot-reload (development)
       - ./interface-backend:/app
