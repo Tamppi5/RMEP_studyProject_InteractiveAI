@@ -89,12 +89,6 @@ def save_data():
         data.append(newDataRecord)
         save_local_data(data)
 
-        # MongoDB save disabled for local development
-        # db = connect()
-        # collection = db['data']
-        # mongoRecord = {'_id': req['participantId'], 'messages': req['messages'], 'tasks': req['tasks'], 'condition': req['condition']}
-        # insert(mongoRecord, collection)
-
         return {
             'message': 'OK',
             'prolificCode': prolific_code,
