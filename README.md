@@ -1,7 +1,5 @@
 # AI Study Platform
 
-A research platform for investigating how students use ChatGPT to solve logical reasoning problems. Developed at Aalto University, Department of Psychology.
-
 ## Quick Start
 
 ### Prerequisites
