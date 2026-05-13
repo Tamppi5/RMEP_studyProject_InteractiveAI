@@ -297,7 +297,3 @@ For issues or questions:
 2. Review the configuration reference
 3. Check Docker Desktop is running and up-to-date
 4. Verify your OpenAI API key is valid and has credits
-
-## Credits
-
-Developed at Aalto University, Department of Psychology
