@@ -5,8 +5,8 @@
 ### Prerequisites
 
 - **Docker Desktop** - [Download here](https://www.docker.com/products/docker-desktop/)
-  - Windows users: Docker Desktop includes everything you need
-  - Mac/Linux users: Install Docker Desktop for your platform
+  - Click Download Docker Desktop -> choose installer depending on your OS and processor
+  - (Windows laptops most commonly have AMD or Intel processors -> choose the AMD64 installer)
 
 ### Setup
 
