@@ -38,7 +38,7 @@
    ```
 
 5. **Access the study**
-   - Open your browser to http://localhost:5173
+   - After the app is up and running, open your browser to http://localhost:5173
    - The study interface will load automatically
 
 6. **Stop the application**
