@@ -1,4 +1,4 @@
-const baseURL = import.meta.env.VITE_PROXY_URL
+const baseURL = import.meta.env.VITE_PROXY_URL || `http://${window.location.hostname}:5000`
 
 const saveToDatabase = async (data) => {
   try {

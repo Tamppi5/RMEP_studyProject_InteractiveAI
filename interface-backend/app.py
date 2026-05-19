@@ -18,7 +18,7 @@ prolific_url = config.get('completion_url', '')
 
 app = Flask(__name__)
 
-CORS(app, origins = [front_url])
+CORS(app, origins = '*')
 
 
 @app.route('/chat', methods = ['POST'])
