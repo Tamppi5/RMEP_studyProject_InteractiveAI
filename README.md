@@ -5,8 +5,8 @@
 ### Prerequisites
 
 - **Docker Desktop** - [Download here](https://www.docker.com/products/docker-desktop/)
-  - Windows users: Docker Desktop includes everything you need
-  - Mac/Linux users: Install Docker Desktop for your platform
+  - Click Download Docker Desktop -> choose installer depending on your OS and processor
+  - (Windows laptops most commonly have AMD or Intel processors -> choose the AMD64 installer)
 
 ### Setup
 
@@ -297,7 +297,3 @@ For issues or questions:
 2. Review the configuration reference
 3. Check Docker Desktop is running and up-to-date
 4. Verify your OpenAI API key is valid and has credits
-
-## Credits
-
-Developed at Aalto University, Department of Psychology
