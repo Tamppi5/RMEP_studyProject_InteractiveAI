@@ -17,7 +17,7 @@
 
    ```bash
    git clone <repository-url> 
-   cd AI_study
+   cd RMEP_studyProject_InteractiveAI
    ```
    - Alternatively download as zip and unzip the project
 
