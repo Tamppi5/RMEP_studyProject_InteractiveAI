@@ -14,7 +14,7 @@ allow_image_attachments: false     # Enable image uploads
 
 # Attention Check
 attention_check_page: 1            # Page number (-1 to disable)
-attention_check_answers: Answer1,Answer2  # Correct answers (comma-separated)
+attention_check_answers: Logical reasoning,The best choice
 
 # Development
 dev_mode: true                     # Skip participant ID validation
