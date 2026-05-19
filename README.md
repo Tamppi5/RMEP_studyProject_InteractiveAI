@@ -22,9 +22,16 @@
    - Alternatively download as zip and unzip the project
 
 2. **Set up config and data files**
-   - Run the following in command prompt:
+   - Run the following in your terminal:
    ```bash
+   # Mac / Linux
    cp study.config.example.yml study.config.yml
+
+   # Windows (Command Prompt)
+   copy study.config.example.yml study.config.yml
+
+   # Windows (PowerShell)
+   Copy-Item study.config.example.yml study.config.yml
    ```
    - OR create a file "study.config.yml" in the root of the repository and copy "study.config.example.yml" to it manually. Then:
    - Open `study.config.yml` in any text editor
@@ -185,9 +192,19 @@ The JSON file can be:
 - Open Docker Desktop and wait for it to start
 - On Windows: Ensure WSL 2 is installed and enabled in Docker Desktop settings
 
-### "Port 5173 is already in use"
-- Another application is using this port
-- Stop the other application or change the port in `docker-compose.yml`
+### "Port 5173 (or 5000) is already in use"
+- Another application or a previous Docker session is using this port
+- Find and kill the process occupying the port:
+  ```bash
+  # Mac / Linux
+  lsof -i :5000
+  kill -9 <PID>
+
+  # Windows (Command Prompt / PowerShell, run as Administrator)
+  netstat -ano | findstr :5000
+  taskkill /PID <PID> /F
+  ```
+- Or stop any running Docker containers first: `docker-compose down`
 
 ### "API key is not set"
 - Open `study.config.yml` and set your OpenAI API key
@@ -198,10 +215,14 @@ The JSON file can be:
 - If not, restart with: `docker-compose down` then `docker-compose up`
 - For changes to `study.config.yml`, restart is always required
 
-### "Cannot connect to backend"
+### "Cannot connect to backend" or "Failed to save data"
 - Check that both containers are running: `docker-compose ps`
 - Backend should be at http://localhost:5000
 - Frontend should be at http://localhost:5173
+- If accessing from another device on the network, open port 5000 in Windows Firewall (run as Administrator):
+  ```powershell
+  netsh advfirewall firewall add rule name="AI Study Backend" dir=in action=allow protocol=TCP localport=5000
+  ```
 
 ### OpenAI API errors
 - Check your API key is correct in `study.config.yml`
