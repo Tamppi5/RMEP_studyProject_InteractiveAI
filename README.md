@@ -26,12 +26,6 @@
    ```bash
    # Mac / Linux
    cp study.config.example.yml study.config.yml
-
-   # Windows (Command Prompt)
-   copy study.config.example.yml study.config.yml
-
-   # Windows (PowerShell)
-   Copy-Item study.config.example.yml study.config.yml
    ```
    - OR create a file "study.config.yml" in the root of the repository and copy "study.config.example.yml" to it manually. Then:
    - Open `study.config.yml` in any text editor
