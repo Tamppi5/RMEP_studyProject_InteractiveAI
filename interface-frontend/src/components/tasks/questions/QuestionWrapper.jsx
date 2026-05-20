@@ -94,7 +94,7 @@ const getValidationRules = (question) => {
       validate: {
         isValidOption: (v) => question.options.filter((o) => o.toLowerCase() === 'other').length > 0 ? true : (question.options.includes(v) || 'Please select one')
       },
-      maxLength: {value: 5000, message: 'Maximum 5000 characters.'}
+      maxLength: {value: 5001, message: 'Maximum 5001 characters.'}
     }
   }[question.type])
 }

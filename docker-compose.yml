@@ -6,7 +6,7 @@ services:
       context: ./interface-backend
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "5001:5001"
     volumes:
       # Mount config file (read-only)
       - ./study.config.yml:/study.config.yml:ro

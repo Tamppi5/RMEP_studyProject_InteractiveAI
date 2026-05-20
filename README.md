@@ -186,16 +186,16 @@ The JSON file can be:
 - Open Docker Desktop and wait for it to start
 - On Windows: Ensure WSL 2 is installed and enabled in Docker Desktop settings
 
-### "Port 5173 (or 5000) is already in use"
+### "Port 5173 (or 5001) is already in use"
 - Another application or a previous Docker session is using this port
 - Find and kill the process occupying the port:
   ```bash
   # Mac / Linux
-  lsof -i :5000
+  lsof -i :5001
   kill -9 <PID>
 
   # Windows (Command Prompt / PowerShell, run as Administrator)
-  netstat -ano | findstr :5000
+  netstat -ano | findstr :5001
   taskkill /PID <PID> /F
   ```
 - Or stop any running Docker containers first: `docker-compose down`
@@ -211,11 +211,11 @@ The JSON file can be:
 
 ### "Cannot connect to backend" or "Failed to save data"
 - Check that both containers are running: `docker-compose ps`
-- Backend should be at http://localhost:5000
+- Backend should be at http://localhost:5001
 - Frontend should be at http://localhost:5173
-- If accessing from another device on the network, open port 5000 in Windows Firewall (run as Administrator):
+- If accessing from another device on the network, open port 5001 in Windows Firewall (run as Administrator):
   ```powershell
-  netsh advfirewall firewall add rule name="AI Study Backend" dir=in action=allow protocol=TCP localport=5000
+  netsh advfirewall firewall add rule name="AI Study Backend" dir=in action=allow protocol=TCP localport=5001
   ```
 
 ### OpenAI API errors
@@ -246,7 +246,7 @@ If you prefer not to use Docker:
 4. **Frontend setup** (in a new terminal)
    - Create `interface-frontend/.env` with the values from `study.config.yml`:
      ```
-     VITE_PROXY_URL=http://localhost:5000
+     VITE_PROXY_URL=http://localhost:5001
      VITE_PCTP_CONDITION=ai
      VITE_CHAT_ENABLED_BEGIN=1
      VITE_CHAT_ENABLED_END=99

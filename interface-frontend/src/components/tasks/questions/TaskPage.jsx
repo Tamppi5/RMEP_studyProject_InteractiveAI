@@ -93,7 +93,7 @@ const TaskPage = ({ taskIndex, sourceIndex, title, items, next }) => {
       <div className='w-full flex flex-row justify-between items-center mt-4'>
         {/* Display form error if some fields are invalid */}
         <p className='text-red-500 font-bold'>
-          <i className={submitError.length > 0 && "bi bi-exclamation-triangle text-xl mr-2"}></i>
+          {submitError.length > 0 && <i className="bi bi-exclamation-triangle text-xl mr-2"></i>}
           {submitError}
         </p>
         {/* Display instruction to use chat if not used on this page yet */}

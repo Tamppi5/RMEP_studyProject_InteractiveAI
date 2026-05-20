@@ -29,7 +29,7 @@ const ChatInput = ({preventInput, handleSend}) => {
 
   const handleInputError = (message) => {
     setInputError(message)
-    setTimeout(() => setInputError(''), 5000)
+    setTimeout(() => setInputError(''), 5001)
   }
 
   return (
