@@ -1,7 +1,7 @@
 """
 Test script to verify that the /save and /check_participation endpoints work correctly.
 Usage: python test_save.py [backend_url]
-  backend_url defaults to http://localhost:5000
+  backend_url defaults to http://localhost:5001
 """
 
 import sys
@@ -9,7 +9,7 @@ import json
 import urllib.request
 import urllib.error
 
-BACKEND_URL = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:5000"
+BACKEND_URL = sys.argv[1] if len(sys.argv) > 1 else "http://localhost:5001"
 TEST_PARTICIPANT_ID = "__test_participant_001__"
 
 # Sample data mimicking what the frontend sends on completion

@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expose Flask port
-EXPOSE 5000
+EXPOSE 5001
 
 # Run Flask in development mode with host 0.0.0.0 to allow external connections
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000", "--debug"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5001", "--debug"]
